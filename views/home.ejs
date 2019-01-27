@@ -1,0 +1,38 @@
+<% include partials/header %>
+
+<div class="ui main text container ">
+    <div class="ui huge header">Blog Site</div>
+    <div class="ui divided items container segment">
+    <% cat.forEach(function(cat){ %>
+        <div class="item">
+            <div class="image">
+                <img class="ui fluid image" src="<%= cat.image %>">
+            </div>
+            <div class="content">
+                <a href="/cats/<%=cat._id%>" class="header"><%= cat.name %></a>
+                <div class="meta">
+                    <span><%= cat.date.toDateString() %></span>
+                </div>
+                <div class="description">
+                    <p><%= cat.body.substring(0, 100) %>......</p>
+                </div>
+                <div class="extra">
+                    <p>
+                        <a href="/cats/<%=cat._id%>" style="color: purple">
+                            <div class="ui animated basic purple button" tabindex="0">
+                                <div class="visible content">Read More</div>
+                                <div class="hidden content">
+                                    <i class="ui right arrow icon"></i>
+                                </div>
+                            </div>
+                        </a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    <% }) %>           
+    </div> 
+</div>
+
+
+<% include partials/footer %>
